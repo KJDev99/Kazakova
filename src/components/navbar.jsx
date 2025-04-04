@@ -61,7 +61,7 @@ export default function Navbar() {
         <Button width="180px" text="Написать нам" onClick={handleClick} />
       </div>
       {showButtons && (
-        <div className="mt-4 flex flex-col gap-1 animate-fade-in absolute right-22 top-[150px]">
+        <div className="mt-4 flex flex-col gap-1 animate-fade-in absolute right-0 top-[100px]">
           <a
             href="https://wa.me/998901234567"
             target="_blank"
