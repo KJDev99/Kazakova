@@ -5,11 +5,15 @@ const Accordion = ({ title, children, isOpen, onClick }) => {
   return (
     <div className="border-b border-gray-300">
       <button
-        className="flex justify-between items-center w-full py-4 text-left text-2xl font-medium"
+        className="flex justify-between items-center w-full py-4 text-left text-[32px]"
         onClick={onClick}
       >
         <span>{title}</span>
-        {isOpen ? <AiOutlineMinus size={24} /> : <AiOutlinePlus size={24} />}
+        {isOpen ? (
+          <AiOutlineMinus size={24} className="text-[#9B9B9B]" />
+        ) : (
+          <AiOutlinePlus size={24} className="text-[#9B9B9B]" />
+        )}
       </button>
 
       <motion.div
@@ -20,7 +24,7 @@ const Accordion = ({ title, children, isOpen, onClick }) => {
       >
         <div className="py-2 text-gray-700 text-lg space-y-2">
           {children.map((item, index) => (
-            <p key={index} className="pl-4">
+            <p key={index} className="pl-4 mb-6">
               • {item}
             </p>
           ))}
