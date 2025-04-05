@@ -1,12 +1,17 @@
 import React from "react";
-import PrivacyNav from "../components/Privacy/privacyNav";
 import PrivacyTitle from "../components/Privacy/privacyTitle";
 import PrivacyContent from "../components/Privacy/privacyContent";
 import Forma from "../components/forma";
+import BreadcrumbNav from "../components/BreadcrumbNav";
 export default function PrivacyPolicy() {
   return (
     <>
-      <PrivacyNav />
+      <BreadcrumbNav
+        items={[
+          { label: "Главная", path: "/" },
+          { label: "Политика конфиденциальности" },
+        ]}
+      />
       <PrivacyTitle />
       <PrivacyContent />
       <Forma />

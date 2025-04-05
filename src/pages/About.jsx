@@ -1,14 +1,16 @@
 import React from "react";
-import AboutNav from "../components/About/aboutNav";
-import AboutTitle from "../components/About/aboutTitle";
 import AboutContent from "../components/About/aboutContent";
 import Forma from "../components/forma";
+import BreadcrumbNav from "../components/BreadcrumbNav";
+import PageTitle from "../components/PageTitle";
 
 export default function About() {
   return (
     <>
-      <AboutNav />
-      <AboutTitle />
+      <BreadcrumbNav
+        items={[{ label: "Главная", path: "/" }, { label: "О нас" }]}
+      />
+      <PageTitle title="О нас" />
       <AboutContent />
       <Forma />
     </>

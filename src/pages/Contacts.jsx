@@ -1,14 +1,15 @@
 import React from "react";
-import ContactNav from "../components/Contacts/contactNav";
-import ContactTitle from "../components/Contacts/contactTitle";
 import Forma from "../components/forma";
 import ContactContent from "../components/Contacts/contactContent";
-
+import BreadcrumbNav from "../components/BreadcrumbNav";
+import PageTitle from "../components/PageTitle";
 export default function Contacts() {
   return (
     <>
-      <ContactNav />
-      <ContactTitle />
+      <BreadcrumbNav
+        items={[{ label: "Главная", path: "/" }, { label: "Контакты" }]}
+      />
+      <PageTitle title="Связаться с нами" />
       <ContactContent />
       <Forma />
     </>
