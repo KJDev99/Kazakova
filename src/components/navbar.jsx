@@ -208,9 +208,11 @@ export default function Navbar() {
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
           >
-            <div className="max-w-[744px] mx-auto bg-white">
-              <h2 className="text-[80px] mb-4">Отправить заявку</h2>
-              <p className="text-2xl mb-4 text-center">
+            <div className="max-w-[744px] mx-auto bg-white max-md:px-4">
+              <h2 className="text-[80px] mb-4 max-md:text-2xl max-md:text-center max-md:font-semibold">
+                Отправить заявку
+              </h2>
+              <p className="text-2xl mb-4 text-center max-md:text-[16px]">
                 Заполните форму и мы свяжемся с вами
               </p>
               <input
@@ -224,14 +226,17 @@ export default function Navbar() {
                 className="text-[#989898] py-2 px-0.5 w-full border-b-1 border-black mb-8"
               />
               <Button text="Отправить" />
-              <div className="flex mt-6 gap-4 items-center">
+              <div className="flex mt-6 gap-4 md:items-center max-md:gap-2">
                 <input
                   type="checkbox"
                   name="check"
                   id="check"
                   className="w-6 h-6 accent-[#989898]"
                 />
-                <label htmlFor="check" className="cursor-pointer">
+                <label
+                  htmlFor="check"
+                  className="cursor-pointer max-md:text-sm"
+                >
                   Нажимая на кнопку, вы даете согласие на обработку персональных
                   данных и соглашаетесь с&nbsp;
                   <Link to="/privacy-policy" className="font-medium">
@@ -243,7 +248,7 @@ export default function Navbar() {
 
             <button
               onClick={handleModalClose}
-              className="absolute top-8 right-8 text-black text-3xl z-50"
+              className="absolute top-8 right-8 text-black text-3xl z-50 max-md:text-xl max-md:top-4 max-md:right-4"
             >
               <AiOutlineClose />
             </button>

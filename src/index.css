@@ -14,3 +14,7 @@ button,
 svg {
   cursor: pointer;
 }
+
+input {
+  outline: none;
+}
