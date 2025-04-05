@@ -9,7 +9,7 @@ export default function ProductContent() {
   };
   return (
     <div>
-      <div className="flex space-x-8 px-22 max-w-[1920px]">
+      <div className="flex space-x-8 px-22 max-w-[1920px] max-md:px-4 max-md:flex-wrap max-md:gap-x-4 max-md:gap-y-6">
         <span
           className={`border-b-1 font-medium cursor-pointer w-max ${
             activeTab === "Все проекты"
@@ -51,7 +51,7 @@ export default function ProductContent() {
           Общественные интерьеры
         </span>
       </div>
-      <div className="mt-18 mb-0 space-y-18 grid grid-cols-2">
+      <div className="mt-18 mb-0 space-y-18 grid grid-cols-2 max-md:mt-10 max-md:grid-cols-1">
         {[
           "sec1.png",
           "sec2.png",
@@ -75,8 +75,10 @@ export default function ProductContent() {
               <img src={`/${img}`} alt="" className="w-full" />
               <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-50 transition-opacity duration-300"></div>
             </div>
-            <div className="px-6 pt-8">
-              <h3 className="mb-0 font-semibold text-2xl">Тим Парк</h3>
+            <div className="px-6 pt-8 max-md:px-4 max-md:pt-4">
+              <h3 className="mb-0 font-semibold text-2xl max-md:text-lg">
+                Тим Парк
+              </h3>
               <p className="mt-0">2024 Москва, 150 m²</p>
             </div>
           </Link>

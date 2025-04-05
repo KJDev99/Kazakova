@@ -14,8 +14,8 @@ export default function ServicesContent() {
     setOpenIndex(openIndex === index ? null : index);
   };
   return (
-    <div className="flex flex-col px-22">
-      <div className="flex space-x-8 mb-16">
+    <div className="flex flex-col px-22 max-md:px-0">
+      <div className="flex space-x-8 mb-16 max-md:flex-col max-md:space-y-6 max-md:px-4">
         <span
           className={`border-b-1 font-medium cursor-pointer w-max ${
             activeTab === "Все проекты"
@@ -47,14 +47,23 @@ export default function ServicesContent() {
           Комплектация объекта
         </span>
       </div>
-      <div className="grid grid-cols-2 gap-10">
+      <div className="grid grid-cols-2 gap-10 max-md:grid-cols-1">
         {activeTab === "Все проекты" && (
           <div className="flex flex-col">
-            <h2 className="text-[80px] mb-4">Дизайн-проект</h2>
-            <p className="text-2xl mb-18 max-w-[640px]">
+            <h2 className="text-[80px] mb-4 max-md:text-[40px] max-md:px-4">
+              Дизайн-проект
+            </h2>
+            <p className="text-2xl mb-18 max-w-[640px] max-md:px-4 max-md:text-[16px] max-md:mb-10 ">
               Полный дизайн-проект состоит из эскизного проекта и рабочего
               проекта
             </p>
+            <div>
+              <img
+                src="services.png"
+                alt=""
+                className="md:hidden max-md:mb-10"
+              />
+            </div>
             <Accordion
               title="/ Этапы"
               children={[
@@ -108,11 +117,20 @@ export default function ServicesContent() {
 
         {activeTab === "Интерьеры" && (
           <div className="flex flex-col">
-            <h2 className="text-[80px] mb-4">Авторский надзор</h2>
-            <p className="text-2xl mb-18 max-w-[690px]">
+            <h2 className="text-[80px] mb-4 max-md:text-[40px] max-md:px-4">
+              Авторский надзор
+            </h2>
+            <p className="text-2xl mb-18 max-w-[690px] max-md:px-4 max-md:text-[16px] max-md:mb-10 ">
               Авторский надзор-контроль выполнения работ всеми участниками
               реализации по согласованию замысла авторов (архитекторов).
             </p>
+            <div>
+              <img
+                src="services.png"
+                alt=""
+                className="md:hidden max-md:mb-10"
+              />
+            </div>
             <Accordion
               title="/ Гарантии"
               children={[
@@ -142,14 +160,23 @@ export default function ServicesContent() {
 
         {activeTab === "Архитектура" && (
           <div className="flex flex-col">
-            <h2 className="text-[80px] mb-4">Комплектация объекта</h2>
-            <p className="text-2xl mb-18 ">
+            <h2 className="text-[80px] mb-4  max-md:text-[40px] max-md:px-4">
+              Комплектация объекта
+            </h2>
+            <p className="text-2xl mb-18 max-md:px-4 max-md:text-[16px] max-md:mb-10 ">
               Услуга подбора материалов можно дополнительно заказать и после
               создания дизайн-проекта. Комплектация освободит вам время и силы
               на поиск поставщиков, организацию поставок отделочных материалов,
               мебели и сантехники на объект. Входит в стоимость авторского
               надзора.
             </p>
+            <div>
+              <img
+                src="services.png"
+                alt=""
+                className="md:hidden max-md:mb-10"
+              />
+            </div>
             <Accordion
               title="/ Что входит"
               children={[
@@ -185,7 +212,7 @@ export default function ServicesContent() {
           </div>
         )}
 
-        <div>
+        <div className="max-md:hidden">
           <img src="services.png" alt="" />
         </div>
       </div>

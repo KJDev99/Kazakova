@@ -14,7 +14,7 @@ import Footer from "./components/footer";
 
 export default function App() {
   return (
-    <div>
+    <>
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
@@ -28,6 +28,6 @@ export default function App() {
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
       </Routes>
       <Footer />
-    </div>
+    </>
   );
 }

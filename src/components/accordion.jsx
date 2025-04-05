@@ -3,9 +3,9 @@ import { AiOutlinePlus, AiOutlineMinus } from "react-icons/ai";
 
 const Accordion = ({ title, children, isOpen, onClick }) => {
   return (
-    <div className="border-b border-gray-300">
+    <div className="border-b border-gray-300 max-md:px-4">
       <button
-        className="flex justify-between items-center w-full py-4 text-left text-[32px]"
+        className="flex justify-between items-center w-full py-4 text-left text-[32px] max-md:text-[24px]"
         onClick={onClick}
       >
         <span>{title}</span>
@@ -22,9 +22,9 @@ const Accordion = ({ title, children, isOpen, onClick }) => {
         transition={{ duration: 0.4, ease: "easeInOut" }}
         className="overflow-hidden"
       >
-        <div className="py-2 text-gray-700 text-lg space-y-2">
+        <div className="md:py-2 text-gray-700 text-lg max-md:text-[16px] space-y-2">
           {children.map((item, index) => (
-            <p key={index} className="pl-4 mb-6">
+            <p key={index} className="pl-4 mb-6 max-md:mb-4">
               • {item}
             </p>
           ))}

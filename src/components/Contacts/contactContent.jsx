@@ -5,14 +5,14 @@ import { FaTelegramPlane } from "react-icons/fa";
 
 export default function ContactContent() {
   return (
-    <div className="px-22 max-w-[1920px] mx-auto grid grid-cols-2">
-      <div className="flex justify-between">
+    <div className="px-22 max-w-[1920px] mx-auto grid grid-cols-2 max-md:px-4 max-md:grid-cols-1">
+      <div className="flex justify-between max-md:flex-col">
         <div className="flex flex-col">
-          <h2 className="font-medium text-[32px]">Москва</h2>
-          <p className="leading-[150%] max-w-[260px]">
+          <h2 className="font-medium text-[32px] max-md:text-lg">Москва</h2>
+          <p className="leading-[150%] max-w-[260px] ">
             Холодильный переулок, 3, к1с8 2-й этаж, офис — 8210
           </p>
-          <h2 className="font-medium text-[32px] mb-8 mt-16">
+          <h2 className="font-medium text-[32px] mb-8 mt-16 max-md:mt-10 max-md:text-lg max-md:mb-6">
             +7(916)375-29-99
           </h2>
           <p className="leading-[150%] mb-4">Напишите нам:</p>
@@ -22,7 +22,7 @@ export default function ContactContent() {
           </div>
         </div>
         <div className="flex flex-col ">
-          <h2 className="font-medium text-[32px] mb-8">
+          <h2 className="font-medium text-[32px] mb-8 max-md:text-lg max-md:mt-10">
             larikazakova@gmail.com
           </h2>
           <p className="leading-[150%] mb-4">Социальные сети:</p>

@@ -64,14 +64,14 @@ export default function ProductDetailsContent() {
           >
             <button
               onClick={closeModal}
-              className="absolute top-8 right-8 text-black text-3xl z-50"
+              className="absolute top-8 right-8 text-black text-3xl z-50 max-md:right-4 max-md:text-2xl"
             >
               <AiOutlineClose />
             </button>
 
-            <div className="absolute top-8 right-24  flex gap-4 text-black text-3xl z-50 items-center">
+            <div className="absolute top-8 right-24 max-md:right-16 max-md:text-2xl  flex gap-4 text-black text-3xl z-50 items-center">
               <button
-                className="w-6 h-6"
+                className="w-6 h-6 "
                 onClick={() => setZoom((z) => Math.min(z + 0.2, 3))}
               >
                 <HiOutlineMagnifyingGlassPlus />
@@ -86,7 +86,7 @@ export default function ProductDetailsContent() {
 
             <button
               onClick={prevImage}
-              className="absolute left-8 text-black text-4xl z-50"
+              className="absolute left-8 text-black text-4xl z-50 max-md:text-xl max-md:h-6 max-md:w-6 max-md:bg-white max-md:rounded-[5px] max-md:flex max-md:justify-center max-md:items-center max-md:left-1"
             >
               <LuMoveLeft />
             </button>
@@ -105,7 +105,7 @@ export default function ProductDetailsContent() {
 
             <button
               onClick={nextImage}
-              className="absolute right-8 text-black text-4xl z-50"
+              className="absolute right-8 text-black text-4xl z-50 max-md:text-xl max-md:h-6 max-md:w-6 max-md:bg-white max-md:rounded-[5px] max-md:flex max-md:justify-center max-md:items-center max-md:right-1"
             >
               <LuMoveRight />
             </button>
@@ -114,12 +114,12 @@ export default function ProductDetailsContent() {
       </AnimatePresence>
 
       <div className="flex flex-col">
-        <img src="/phero.png" alt="" className="w-full" />
-        <div className="max-w-[1920px] mx-auto px-22">
-          <h2 className="text-center mt-40 mb-4 text-[80px] leading-[100%]">
+        <img src="/phero.png" alt="" className="w-full max-md:h-[210px]" />
+        <div className="max-w-[1920px] mx-auto px-22 max-md:px-4">
+          <h2 className="text-center mt-40 mb-4 text-[80px] leading-[100%] max-md:mt-24 max-md:text-[40px]">
             150 m²
           </h2>
-          <p className="max-w-[1024px] mx-auto text-center mb-16">
+          <p className="max-w-[1024px] mx-auto text-center mb-16 max-md:mb-10">
             Концепция квартиры раскрывается через тонкие детали и умные решения,
             делающие жизнь удобнее, а пространство — особенным. Каждая зона
             квартиры рассказывает свою историю: от умных технологий до текстур
@@ -129,7 +129,7 @@ export default function ProductDetailsContent() {
 
           <img src="/patr.png" alt="" className="mx-auto" />
 
-          <div className="grid grid-cols-2 gap-x-10 mt-40">
+          <div className="grid grid-cols-2 gap-x-10 mt-40 max-md:mt-24 max-md:gap-x-2">
             {galleryImages.slice(0, 2).map((src, i) => (
               <img
                 key={i}
@@ -141,7 +141,7 @@ export default function ProductDetailsContent() {
             ))}
           </div>
 
-          <p className="my-18 max-w-[1176px] mx-auto text-center">
+          <p className="my-18 max-w-[1176px] mx-auto text-center max-md:mt-10">
             Мы использовали светлые оттенки, чтобы создать ощущение простора и
             легкости. Мебель выбрана с учетом функциональности и эстетики:
             каждая деталь имеет свое место и значение. Простые формы и
@@ -153,7 +153,7 @@ export default function ProductDetailsContent() {
             индивидуальность в минималистичное окружение.
           </p>
 
-          <div className="grid grid-cols-6 gap-x-10 gap-y-18">
+          <div className="grid grid-cols-6 gap-x-10 gap-y-18 max-md:hidden">
             {galleryImages.slice(2, 8).map((src, i) => (
               <img
                 key={i}
@@ -171,7 +171,21 @@ export default function ProductDetailsContent() {
             ))}
           </div>
 
-          <p className="my-18 max-w-[1176px] mx-auto text-center">
+          <div className="grid grid-cols-2 gap-x-2 gap-y-10 md:hidden">
+            {galleryImages.slice(3, 8).map((src, i) => (
+              <img
+                key={i}
+                src={src}
+                alt=""
+                className={`${
+                  i === 2 ? "col-span-2" : "col-span-1"
+                } cursor-pointer h-full`}
+                onClick={() => openModal(i + 2)}
+              />
+            ))}
+          </div>
+
+          <p className="my-18 max-w-[1176px] mx-auto text-center max-md:my-10">
             Гостиная и кухня в этом дизайне идеально сочетаются, создавая
             пространство для общения и отдыха. Открытая планировка способствует
             взаимодействию, позволяя вам наслаждаться временем с семьей и
@@ -180,7 +194,7 @@ export default function ProductDetailsContent() {
             приятные беседы.
           </p>
 
-          <div className="grid grid-cols-6 gap-x-10 gap-y-18">
+          <div className="grid grid-cols-6 gap-x-10 gap-y-18 max-md:hidden">
             {galleryImages.slice(8).map((src, i) => (
               <img
                 key={i}
@@ -188,8 +202,21 @@ export default function ProductDetailsContent() {
                 alt=""
                 className={`col-span-${
                   i === 5 ? 6 : i >= 2 ? 2 : 3
-                } cursor-pointer`}
+                } cursor-pointer h-full`}
                 onClick={() => openModal(i + 8)}
+              />
+            ))}
+          </div>
+          <div className="grid grid-cols-2 gap-x-2 gap-y-10 md:hidden">
+            {galleryImages.slice(9).map((src, i) => (
+              <img
+                key={i}
+                src={src}
+                alt=""
+                className={`${
+                  i === 4 ? "col-span-2" : "col-span-1 h-full"
+                } cursor-pointer h-full`}
+                onClick={() => openModal(i + 2)}
               />
             ))}
           </div>

@@ -1,24 +1,29 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import Button from "../ui/button";
-import { IoLogoWhatsapp } from "react-icons/io";
+import { IoIosMenu, IoLogoWhatsapp } from "react-icons/io";
 import { RiTelegram2Fill } from "react-icons/ri";
 import { FaPlus } from "react-icons/fa";
-import { motion, AnimatePresence } from "framer-motion"; // framer-motion import
+import { motion, AnimatePresence } from "framer-motion";
 import { AiOutlineClose } from "react-icons/ai";
 
 export default function Navbar() {
   const [showButtons, setShowButtons] = useState(false);
-  const [modalOpen, setModalOpen] = useState(false); // Modal holatini boshqarish
+  const [modalOpen, setModalOpen] = useState(false);
+  const [showMenu, setShowMenu] = useState(false);
   const containerRef = useRef(null);
 
   const handleClick = () => {
     setShowButtons(!showButtons);
   };
+  const handleClickMenu = () => {
+    setShowMenu(!showMenu);
+  };
 
   const handleModalOpen = () => {
     setModalOpen(true);
-    setShowButtons(false); // Modal ochilganda tugmalarni yopish
+    setShowButtons(false);
+    setShowMenu(false);
   };
 
   const handleModalClose = () => {
@@ -29,6 +34,7 @@ export default function Navbar() {
 
   useEffect(() => {
     setShowButtons(false);
+    setShowMenu(false);
   }, [location.pathname]);
 
   useEffect(() => {
@@ -45,8 +51,8 @@ export default function Navbar() {
   }, []);
 
   return (
-    <div className="max-w-[1920px] mx-auto px-22 h-22 grid grid-cols-3 items-center relative">
-      <ul className="flex space-x-10">
+    <div className="max-w-[1920px] mx-auto px-22 h-22 grid grid-cols-3 items-center relative max-md:px-4 max-md:h-[50px] max-md:border-b max-md:border-[#f3f3f3]">
+      <ul className="flex space-x-10 max-2xl:space-x-5 max-md:hidden">
         <li>
           <Link to={"/"}>Главная</Link>
         </li>
@@ -66,14 +72,89 @@ export default function Navbar() {
           <Link to={"/galery"}>Галерея</Link>
         </li>
       </ul>
-      <div className="flex justify-center">
-        <img src="/logo.svg" alt="" />
+      <div className="md:hidden max-md:flex max-md:gap-2">
+        <a
+          href="https://wa.me/998901234567"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <IoLogoWhatsapp className="text-lg" />
+        </a>
+        <a
+          href="https://t.me/your_telegram_username"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <RiTelegram2Fill className="text-lg" />
+        </a>
       </div>
-      <div className="flex justify-end">
+      <div className="flex justify-center">
+        <img src="/logo.svg" alt="" className="max-md:h-[18px]" />
+      </div>
+      <div className="flex justify-end max-md:hidden">
         <Button width="180px" text="Написать нам" onClick={handleClick} />
       </div>
+      <div className="md:hidden flex justify-end text-2xl">
+        {!showMenu ? (
+          <IoIosMenu onClick={handleClickMenu} />
+        ) : (
+          <AiOutlineClose onClick={handleClickMenu} />
+        )}
+      </div>
 
-      {/* Buttons with animation */}
+      <AnimatePresence>
+        {showMenu && (
+          <motion.div
+            className="px-6 py-8  flex flex-col gap-1 absolute right-0 w-full bg-white top-[50px] z-[999]"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.3 }}
+          >
+            <ul className="flex flex-col space-y-10">
+              <li>
+                <Link to={"/"}>Главная</Link>
+              </li>
+              <li>
+                <Link to={"/projects"}>Проекты</Link>
+              </li>
+              <li>
+                <Link to={"/services"}>Услуги</Link>
+              </li>
+              <li>
+                <Link to={"/about"}>О&nbsp;нас</Link>
+              </li>
+              <li>
+                <Link to={"/contacts"}>Контакты</Link>
+              </li>
+              <li>
+                <Link to={"/galery"}>Галерея</Link>
+              </li>
+              <div className="flex flex-col max-md:mb-10">
+                <h2 className="font-medium text-[32px] max-md:text-2xl max-md:mb-2">
+                  Москва
+                </h2>
+                <p className="leading-[150%] max-w-[260px] max-md:leading-[100%] ">
+                  Холодильный переулок, 3, к1с8 2-й этаж, офис — 8210
+                </p>
+              </div>
+              <div className="flex flex-col max-md:mb-10">
+                <h2 className="font-medium text-[32px] mb-4 max-md:text-2xl max-md:mb-6">
+                  +7(916)375-29-99
+                </h2>
+                <h2 className="font-medium text-[32px] mb-10 max-md:text-2xl max-md:mb-6">
+                  larikazakova@gmail.com
+                </h2>
+                <Button
+                  width="184px"
+                  text="Отправить заявку"
+                  onClick={handleModalOpen}
+                />
+              </div>
+            </ul>
+          </motion.div>
+        )}
+      </AnimatePresence>
       <AnimatePresence>
         {showButtons && (
           <motion.div
@@ -111,7 +192,7 @@ export default function Navbar() {
               width="373px"
               icon={<FaPlus className="text-lg" />}
               text="Отправить заявку"
-              onClick={handleModalOpen} // Modalni ochish
+              onClick={handleModalOpen}
             />
           </motion.div>
         )}

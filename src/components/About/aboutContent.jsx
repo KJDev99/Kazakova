@@ -23,16 +23,16 @@ const teamMembers = [
 
 export default function AboutContent() {
   return (
-    <section className="max-w-[1920px] mx-auto px-22">
-      <div className="grid grid-cols-2 gap-x-10 mb-20">
+    <section className="max-w-[1920px] mx-auto md:px-22">
+      <div className="grid grid-cols-2 gap-x-10 mb-20 max-md:grid-cols-1">
         <img
           src="/team1.png"
           alt="Person"
           className="w-full object-cover h-full"
         />
-        <div className="">
-          <div className="text-left mb-10">
-            <p className="leading-[150%] pr-[80px] mb-2">
+        <div className="max-md:px-4">
+          <div className="text-left mb-10 max-md:mt-8 max-md:mb:28">
+            <p className="leading-[150%] md:pr-[80px] mb-2">
               Дизайн студия _________ уникальное место, где подход к дизайну
               основан на принципах простоты и чистоты форм. _________ верит, что
               каждый элемент в интерьере должен иметь свое значение и место,
@@ -46,14 +46,14 @@ export default function AboutContent() {
               материалы и современные технологии, чтобы обеспечить долговечность
               и стильность каждого проекта.
             </p>
-            <p className="leading-[150%] pr-[80px] mb-2">
+            <p className="leading-[150%] md:pr-[80px] mb-2">
               Каждый наш проект — это уникальное произведение искусства,
               созданное с любовью и вниманием к деталям. Мы верим, что
               пространство, в котором вы живете и работаете, должно не только
               быть красивым, но и функциональным, отражая вашу индивидуальность
               и стиль жизни.
             </p>
-            <p className="leading-[150%] pr-[50px] mb-8">
+            <p className="leading-[150%] md:pr-[50px] mb-8">
               Наша команда опытных дизайнеров и архитекторов работает в тесном
               сотрудничестве с клиентами, чтобы понять их потребности и желания.
               Мы предлагаем полный спектр услуг — от концептуального
@@ -65,15 +65,17 @@ export default function AboutContent() {
         </div>
       </div>
 
-      <div className="grid grid-cols-3 gap-x-10 mt-10">
+      <div className="grid grid-cols-3 gap-x-10 mt-10 max-md:grid-cols-1 max-md:px-4 max-md:gap-y-10">
         {teamMembers.map((member) => (
           <div key={member.id} className="text-left">
             <img
               src={member.image}
               alt={member.name}
-              className="w-full object-cover h-[600px]"
+              className="w-full object-cover h-[600px] max-md:h-[398px]"
             />
-            <h3 className="text-2xl font-semibold mt-8 mb-2">{member.name}</h3>
+            <h3 className="text-2xl font-semibold mt-8 mb-2 max-md:mt-4 max-md:text-lg">
+              {member.name}
+            </h3>
             <p className="">{member.role}</p>
           </div>
         ))}
