@@ -35,6 +35,7 @@ export default function Navbar() {
   useEffect(() => {
     setShowButtons(false);
     setShowMenu(false);
+    window.scrollTo(0, 0);
   }, [location.pathname]);
 
   useEffect(() => {
