@@ -53,7 +53,7 @@ export default function Navbar() {
 
   return (
     <div className="max-w-[1920px] mx-auto px-22 h-22 grid grid-cols-3 items-center relative max-md:px-4 max-md:h-[50px] max-md:border-b max-md:border-[#f3f3f3]">
-      <ul className="flex space-x-10 max-2xl:space-x-5 max-md:hidden">
+      <ul className="flex custom-gap max-md:hidden">
         <li>
           <Link to={"/"}>Главная</Link>
         </li>

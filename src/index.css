@@ -18,3 +18,12 @@ svg {
 input {
   outline: none;
 }
+
+.custom-gap {
+  gap: 40px;
+}
+@media (max-width: 1600px) {
+  .custom-gap {
+    gap: 20px;
+  }
+}
